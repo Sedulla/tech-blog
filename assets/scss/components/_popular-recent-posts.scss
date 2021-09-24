@@ -1,0 +1,63 @@
+/* *************** Popular - Recent Posts *************** */
+
+/* ******* HERO RIGHT TAB ******* */
+.post-tabs {
+  padding: 30px;
+}
+
+.post-tabs .tab-content {
+  margin-top: 30px;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+
+.tab-content {
+  position: relative;
+}
+
+.tab-pane {
+  opacity: 1;
+  @include transition-03;
+}
+
+.tab.pane.loading {
+  opacity: 0.3;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  position: absolute;
+  @include direction($top: 50%, $right: 40px, $left: 50%);
+  @include size($height: 40px);
+  @include fade('hide');
+  transform: translateY(-50%, -50%);
+  @include transition-02;
+  z-index: map-get($z-index, 'curb');
+}
+
+.lds-dual-ring::after {
+  content: '';
+  display: block;
+  @include size(40px, 40px);
+  margin: 8px;
+  border-radius: 50%;
+  border: 3px solid;
+  border-color: $c-primary transparent $c-primary transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.lds-dual-ring.loading {
+  @include fade('show');
+}

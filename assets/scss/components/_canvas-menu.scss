@@ -1,0 +1,133 @@
+/* *************** CANVAS MENU *************** */
+
+.canvas-menu {
+  background: $c-white;
+  @include size(300px, 100vh);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 40px;
+  position: fixed;
+  @include direction($top: 0, $right: 0);
+  z-index: map-get($z-index, 'bungalow');
+  box-shadow: -4px 0px 20px rgba(32, 54, 86, 0.2);
+  transform: translateX(350px);
+  @include transition-03;
+}
+
+.canvas-menu.open {
+  transform: translateX(0);
+}
+
+.canvas-menu .btn-close {
+  box-sizing: content-box;
+  @include size(1em, 1em);
+  position: absolute;
+  padding: 0.25em 0.25em;
+  color: #000;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.4;
+  @include direction($top: 20px, $right: 30px);
+  @include transition-03;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.canvas-menu .logo {
+  margin-bottom: 80px;
+  margin-top: 50px;
+  @include size(100%);
+}
+
+.canvas-menu nav {
+  @include size(100%);
+}
+
+.canvas-menu .vertical-menu {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.canvas-menu .vertical-menu li.openmenu > a {
+  color: #203656;
+}
+
+.canvas-menu .vertical-menu li.openmenu .switch {
+  transform: rotate(180deg);
+}
+
+.canvas-menu .vertical-menu li {
+  padding: 0;
+  position: relative;
+  list-style: none;
+  @include transition-02;
+
+  a {
+    color: #203656;
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    position: relative;
+  }
+}
+
+.canvas-menu .vertical-menu li::after {
+  content: '';
+  display: block;
+  @include size(100%, 1px);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: $c-dark-grey;
+  background: linear-gradient(to right, $c-dark-grey 0%, transparent 100%);
+}
+
+.canvas-menu .vertical-menu li.active {
+  a {
+    color: $c-primary;
+  }
+
+  .submenu a {
+    color: #79889e;
+
+    &:hover {
+      color: #203656;
+    }
+  }
+}
+
+.canvas-menu .submenu {
+  display: none;
+  padding: 10px 20px;
+
+  li {
+    padding: 5px 0;
+
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+}
+
+.canvas-menu .vertical-menu li .switch {
+  border: 1px solid $c-dark-grey;
+  border-radius: 5px;
+  font-size: 10px;
+  display: inline-block;
+  padding: 10px;
+  line-height: 1;
+  cursor: pointer;
+  color: $c-primary;
+  position: absolute;
+  @include direction($top: 0, $right: 0);
+  transform: rotate(0);
+  @include transition-02;
+}

@@ -1,0 +1,57 @@
+body {
+  color: #8f9bad;
+  font-family: $font-secondary;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.relative {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #203656;
+  font-family: $font-primary;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 20px 0;
+}
+
+a {
+  color: #ad1deb;
+  outline: 0;
+  text-decoration: none;
+  @include transition-03;
+
+  &:hover {
+    color: #203656;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

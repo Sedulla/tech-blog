@@ -1,0 +1,251 @@
+/* NAVBAR */
+
+.navbar {
+  padding: 0;
+}
+
+.navbar-nav {
+  font-family: $font-primary;
+  font-size: 14px;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.439rem 1rem;
+  color: #79889e;
+
+  &:hover {
+    color: #203656;
+  }
+}
+
+.navbar-nav li.active .nav-link {
+  color: $c-white;
+  background: #6a3093;
+  border-radius: 25px;
+  background-color: $c-secondary;
+  background-image: linear-gradient(315deg, $c-secondary 0%, $c-primary 74%);
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+}
+
+/* Dropdown Menu */
+
+.dropdown-menu {
+  position: absolute;
+  @include direction($top: 100%);
+  z-index: map-get($z-index, 'skyscraper');
+  display: none;
+  min-width: 10rem;
+  padding: 0;
+  margin: 0;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: $c-white;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 8px 20px rgba(32, 54, 86, 0.2);
+}
+
+.dropdown-menu::after {
+  content: '';
+  display: block;
+  @include size(0, 0);
+  position: absolute;
+  @include direction($top: -10px, $left: 25%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid $c-white;
+}
+
+.dropdown-menu li::after {
+  content: '';
+  background: $c-dark-grey;
+  background: linear-gradient(to right, $c-dark-grey 0%, transparent 100%);
+  display: block;
+  @include size(100%, 1px);
+}
+
+.dropdown-menu li:last-child::after {
+  content: '';
+  display: none;
+}
+
+.dropdown-item {
+  display: block;
+  @include size(100%);
+  padding: 0.6rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  font-size: 13px;
+  color: #79889e;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    margin-left: 5px;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: $c-primary;
+  background-color: transparent;
+}
+
+.dropdown-divider {
+  @include size($height: 0);
+  margin: 0.1rem 0;
+  overflow: hidden;
+  border-top: 1px solid #ddd;
+}
+
+.dropdown-toggle::after {
+  @include d-in-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  font-size: 8px;
+  border: transparent transparent 0 transparent;
+  content: '\25BC';
+  font-family: 'simple-line-icons';
+}
+
+/* Nav button & icon */
+
+.burger-icon::before,
+.burger-icon::after {
+  content: '';
+  background: $c-white;
+  display: block;
+  margin: auto;
+  @include size(15px, 1px);
+}
+
+.burger-icon::before {
+  margin-bottom: 6px;
+}
+
+.burger-icon::after {
+  margin-top: 6px;
+}
+
+.header-right .social-icons {
+  @include d-in-block;
+}
+
+.header-right .header-buttons {
+  @include d-in-block;
+  margin-left: 50px;
+}
+
+.header-right .header-buttons button {
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.3rem;
+    padding-left: 1.3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-xl {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-xl {
+    max-width: 1140px;
+  }
+}
+
+@include for-xl {
+  .header-right .social-icons {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+    animation: growOut 300ms ease-in-out forwards;
+    transform-origin: top center;
+    margin-top: 0;
+  }
+
+  @keyframes growOut {
+    0% {
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  navbar .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+button {
+  @include transition-03;
+
+  &:focus {
+    outline: none;
+    box-shadow: none !important;
+  }
+}
+
+.icon-button {
+  color: $c-white;
+  border: 0;
+  border-radius: 50%;
+  background-color: $c-secondary;
+  background-image: linear-gradient(315deg, $c-secondary 0%, $c-primary 74%);
+  background-size: auto 200%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  @include size(37px, 37px);
+  line-height: 39px;
+  vertical-align: middle;
+  text-align: center;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  @include transition-02;
+  outline: none;
+}
+
+.icon-button:hover {
+  background-position: bottom center;
+}
+
+.social-icons a {
+  font-size: 16px;
+  color: #203656;
+
+  &:hover {
+    color: $c-primary;
+  }
+}
+
+.social-icons li:not(:last-child) {
+  margin-right: 1rem;
+}

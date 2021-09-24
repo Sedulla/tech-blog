@@ -1,0 +1,40 @@
+/* header */
+
+.site-wrapper .main-overlay {
+  @include fade(hide);
+  filter: blur(2px);
+  position: fixed;
+  @include size(100vh, 100%);
+  z-index: map-get($z-index, 'shed');
+  @include transition-03;
+}
+
+.site-wrapper .main-overlay.active {
+  opacity: 0.6;
+  visibility: visible;
+}
+
+.header-default {
+  padding: 40px 0;
+  position: relative;
+  @include size(100%);
+}
+
+.header-default .navbar-nav {
+  margin-left: 50px;
+}
+
+.header-default.clone {
+  position: fixed;
+  @include direction($top: 0, $left: 0, $right: 0);
+  background: $c-white;
+  border-bottom: 1px solid $c-dark-grey;
+  padding: 25px 0;
+  transform: translateY(-100%);
+  transition: 0.2s transform cubic-bezier(0.3, 0.73, 0.3, 0.7);
+  z-index: map-get($z-index, 'postbox');
+}
+
+body.down .header-default.clone {
+  transform: translateY(0);
+}

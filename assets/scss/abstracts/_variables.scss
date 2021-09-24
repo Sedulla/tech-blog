@@ -1,0 +1,37 @@
+/**
+ * Global variables
+ */
+
+// Breakpoints
+
+$bp-small: 768px;
+$bp-medium: 992px;
+$bp-large: 1024px;
+$bp-wide: 1280px;
+
+// Colors
+
+$c-primary: #ad1deb !default;
+$c-secondary: #6e72fc !default;
+$c-white: #fff;
+$c-dark-grey: #ebebeb;
+$color-text: #222 !default;
+
+// Fonts
+
+$font-base-size: 14px !default;
+$font-primary: 'Poppins', sans-serif;
+$font-secondary: 'Montserrat', sans-serif;
+
+// Miscellaneous
+$image-path: '/assets/images';
+
+$z-index: (
+  'skyscraper': 1000,
+  'bungalow': 6,
+  'shed': 5,
+  'postbox': 4,
+  'curb': 1,
+  'pavement': 0,
+  'pothole': -1,
+);

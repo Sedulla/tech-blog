@@ -1,0 +1,92 @@
+@mixin fade($type) {
+  @if $type== 'hide' {
+    visibility: hidden;
+    opacity: 0;
+  } @else if $type== 'show' {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@mixin size($width: null, $height: null) {
+  width: $width;
+  height: $height;
+}
+
+@mixin direction($top: null, $right: null, $bottom: null, $left: null) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin transition-02($ease: ease-in-out) {
+  transition: all 0.2s $ease;
+}
+
+@mixin transition-03($ease: ease-in-out) {
+  transition: all 0.3s $ease;
+}
+
+@mixin d-in-block {
+  display: inline-block;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin for-xs {
+  @media (max-width: 567px) {
+    @content;
+  }
+}
+@mixin for-sm {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
+@mixin for-md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin for-lg {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin for-xl {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-x-xl {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
